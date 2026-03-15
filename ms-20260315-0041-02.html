@@ -1,0 +1,421 @@
+<!-- AI-GENERATED: Autonomous Wealth Engine -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gift Recommender - Personalized Social Profile-Based Suggestions</title>
+    <meta name="description" content="Discover the perfect gift! Our AI analyzes social profiles (simulated) to suggest highly personalized presents with direct purchase links.">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="AI Gift Recommender - Personalized Social Profile-Based Suggestions">
+    <meta property="og:description" content="Discover the perfect gift! Our AI analyzes social profiles (simulated) to suggest highly personalized presents with direct purchase links.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="YOUR_WEBSITE_URL_HERE"> <!-- Replace with actual URL -->
+    <meta property="og:image" content="YOUR_IMAGE_URL_HERE"> <!-- Optional: Add a relevant image URL -->
+    <meta property="og:locale" content="en_US">
+
+    <style>
+        :root {
+            --primary-color: #6a0572; /* Deep Purple */
+            --secondary-color: #a044ff; /* Lighter Purple */
+            --accent-color: #ff9f1c; /* Orange */
+            --background-color: #f4f7f6; /* Light Grey */
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #ddd;
+            --card-background: #fff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 10px auto 0;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        .input-group textarea {
+            width: calc(100% - 20px);
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(160, 68, 255, 0.2);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .btn:hover {
+            background-color: #e68e1a; /* Darker orange */
+            transform: translateY(-2px);
+        }
+
+        .ad-slot {
+            margin: 25px 0;
+            background-color: #e0e0e0;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            border: 1px dashed var(--border-color);
+        }
+
+        #results-container {
+            margin-top: 30px;
+        }
+
+        #results-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gift-card {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gift-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gift-card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+
+        .gift-card p {
+            font-size: 0.95em;
+            color: var(--light-text-color);
+            flex-grow: 1; /* Allows description to take up available space */
+            margin-bottom: 15px;
+        }
+
+        .gift-card .buy-link {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .gift-card .buy-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            font-size: 1.1em;
+            color: var(--light-text-color);
+            background-color: #fdfdff;
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.9em;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 1em;
+                padding: 0 10px;
+            }
+
+            .input-group textarea {
+                width: calc(100% - 20px); /* Adjust for padding */
+            }
+
+            .btn {
+                font-size: 1.1em;
+                padding: 12px 15px;
+            }
+            
+            .gift-grid {
+                grid-template-columns: 1fr; /* Stack cards on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Gift Recommender</h1>
+            <p>Generate highly personalized gift suggestions by simulating social profile analysis. Enter key interests and hobbies to get curated ideas with direct purchase links.</p>
+        </header>
+
+        <section class="tool-section">
+            <div class="input-group">
+                <label for="recipient-interests">Recipient's Key Interests/Hobbies (e.g., hiking, reading, tech gadgets, cooking, art, gaming, fitness)</label>
+                <textarea id="recipient-interests" placeholder="Enter keywords separated by commas (e.g., photography, coffee, yoga, board games, travel, gardening)..."></textarea>
+            </div>
+            
+            <button class="btn" onclick="generateGiftIdeas()">Generate Gift Ideas</button>
+
+            <!-- AD_SLOT -->
+            <div class="ad-slot">
+                Advertisement: Discover unique gifts from our partners!
+            </div>
+            <!-- AD_SLOT -->
+
+            <div id="results-container">
+                <h2>Personalized Gift Suggestions</h2>
+                <div class="gift-grid" id="gift-suggestions">
+                    <!-- Gift cards will be injected here by JavaScript -->
+                    <div class="no-results" id="initial-message">
+                        Enter interests above and click "Generate Gift Ideas" to see personalized suggestions.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AD_SLOT -->
+        <div class="ad-slot">
+            Advertisement: Special offers on top-rated gifts!
+        </div>
+        <!-- AD_SLOT -->
+    </div>
+
+    <footer>
+        Built with ❤️ | AI-generated tool
+    </footer>
+
+    <script>
+        const giftIdeasCatalog = {
+            "hiking": [
+                { name: "High-Quality Hiking Backpack", desc: "Durable and comfortable for long treks.", link: "https://www.amazon.com/s?k=high+quality+hiking+backpack&tag=ai-recommender-20" },
+                { name: "Portable Water Filter", desc: "Essential for clean water on the trail.", link: "https://www.amazon.com/s?k=portable+water+filter&tag=ai-recommender-20" },
+                { name: "Lightweight Trekking Poles", desc: "Improves stability and reduces strain.", link: "https://www.amazon.com/s?k=lightweight+trekking+poles&tag=ai-recommender-20" }
+            ],
+            "reading": [
+                { name: "Bestselling Novel (Genre Specific)", desc: "A captivating story from a popular author in their favorite genre.", link: "https://www.amazon.com/s?k=bestselling+novel&tag=ai-recommender-20" },
+                { name: "E-Reader (Kindle/Kobo)", desc: "Perfect for carrying thousands of books on the go.", link: "https://www.amazon.com/s?k=e-reader&tag=ai-recommender-20" },
+                { name: "Cozy Reading Blanket", desc: "Enhances the comfort of reading sessions.", link: "https://www.amazon.com/s?k=cozy+reading+blanket&tag=ai-recommender-20" }
+            ],
+            "tech": [
+                { name: "Wireless Noise-Cancelling Headphones", desc: "Immersive audio experience for music, podcasts, or calls.", link: "https://www.amazon.com/s?k=wireless+noise+cancelling+headphones&tag=ai-recommender-20" },
+                { name: "Portable Power Bank", desc: "Keep devices charged on the go.", link: "https://www.amazon.com/s?k=portable+power+bank&tag=ai-recommender-20" },
+                { name: "Smart Home Device (e.g., Google Nest Mini)", desc: "Control home with voice commands and automate tasks.", link: "https://www.amazon.com/s?k=smart+home+device&tag=ai-recommender-20" }
+            ],
+            "cooking": [
+                { name: "High-Quality Chef's Knife Set", desc: "Essential tools for any aspiring cook.", link: "https://www.amazon.com/s?k=high+quality+chefs+knife+set&tag=ai-recommender-20" },
+                { name: "Specialty Cookbook", desc: "Explore new cuisines and techniques.", link: "https://www.amazon.com/s?k=specialty+cookbook&tag=ai-recommender-20" },
+                { name: "Smart Kitchen Scale", desc: "Precise measurements for perfect recipes.", link: "https://www.amazon.com/s?k=smart+kitchen+scale&tag=ai-recommender-20" }
+            ],
+            "art": [
+                { name: "Premium Sketchbook and Pencils", desc: "For drawing and creative expression.", link: "https://www.amazon.com/s?k=premium+sketchbook+pencils&tag=ai-recommender-20" },
+                { name: "Acrylic Paint Set", desc: "Vibrant colors for artists of all levels.", link: "https://www.amazon.com/s?k=acrylic+paint+set&tag=ai-recommender-20" },
+                { name: "Art History Book", desc: "Inspiration and knowledge from great masters.", link: "https://www.amazon.com/s?k=art+history+book&tag=ai-recommender-20" }
+            ],
+            "gaming": [
+                { name: "New Release Video Game", desc: "Latest titles for their preferred console/PC.", link: "https://www.amazon.com/s?k=new+release+video+game&tag=ai-recommender-20" },
+                { name: "Ergonomic Gaming Chair", desc: "Comfort and support for long gaming sessions.", link: "https://www.amazon.com/s?k=ergonomic+gaming+chair&tag=ai-recommender-20" },
+                { name: "Gaming Headset", desc: "Clear audio and communication for online play.", link: "https://www.amazon.com/s?k=gaming+headset&tag=ai-recommender-20" }
+            ],
+            "fitness": [
+                { name: "Smart Fitness Tracker", desc: "Monitors activity, heart rate, and sleep.", link: "https://www.amazon.com/s?k=smart+fitness+tracker&tag=ai-recommender-20" },
+                { name: "High-Performance Water Bottle", desc: "Stays hydrated during workouts.", link: "https://www.amazon.com/s?k=high+performance+water+bottle&tag=ai-recommender-20" },
+                { name: "Resistance Bands Set", desc: "Versatile for home workouts and travel.", link: "https://www.amazon.com/s?k=resistance+bands+set&tag=ai-recommender-20" }
+            ],
+            "travel": [
+                { name: "Scratch-Off World Map", desc: "Track past adventures and inspire future ones.", link: "https://www.amazon.com/s?k=scratch+off+world+map&tag=ai-recommender-20" },
+                { name: "Universal Travel Adapter", desc: "Essential for international trips.", link: "https://www.amazon.com/s?k=universal+travel+adapter&tag=ai-recommender-20" },
+                { name: "Travel Journal", desc: "Document experiences and memories.", link: "https://www.amazon.com/s?k=travel+journal&tag=ai-recommender-20" }
+            ],
+            "coffee": [
+                { name: "Gourmet Coffee Bean Subscription", desc: "Discover new and exotic coffee flavors monthly.", link: "https://www.amazon.com/s?k=gourmet+coffee+subscription&tag=ai-recommender-20" },
+                { name: "High-Quality Coffee Maker", desc: "Brew the perfect cup every time.", link: "https://www.amazon.com/s?k=high+quality+coffee+maker&tag=ai-recommender-20" },
+                { name: "Portable Espresso Maker", desc: "Enjoy fresh espresso on the go.", link: "https://www.amazon.com/s?k=portable+espresso+maker&tag=ai-recommender-20" }
+            ],
+            "gardening": [
+                { name: "Ergonomic Gardening Tool Set", desc: "Comfortable and effective tools for tending to plants.", link: "https://www.amazon.com/s?k=ergonomic+gardening+tool+set&tag=ai-recommender-20" },
+                { name: "Seed Starter Kit", desc: "Begin growing herbs, vegetables, or flowers from scratch.", link: "https://www.amazon.com/s?k=seed+starter+kit&tag=ai-recommender-20" },
+                { name: "Stylish Planter Pots", desc: "Enhance their indoor or outdoor plant display.", link: "https://www.amazon.com/s?k=stylish+planter+pots&tag=ai-recommender-20" }
+            ]
+        };
+
+        const generalGiftIdeas = [ // Fallback if no specific interests match well
+            { name: "Personalized Engraved Item", desc: "A thoughtful gift with a personal touch (e.g., jewelry, pen).", link: "https://www.amazon.com/s?k=personalized+engraved+gift&tag=ai-recommender-20" },
+            { name: "Experience Gift Card", desc: "For dining, spa, or local activities.", link: "https://www.amazon.com/s?k=experience+gift+card&tag=ai-recommender-20" },
+            { name: "Subscription Box (Curated)", desc: "Tailored to a general interest like snacks, self-care, or books.", link: "https://www.amazon.com/s?k=subscription+box&tag=ai-recommender-20" }
+        ];
+
+        function generateGiftIdeas() {
+            const interestsInput = document.getElementById('recipient-interests').value.toLowerCase().trim();
+            const suggestionsDiv = document.getElementById('gift-suggestions');
+            const initialMessage = document.getElementById('initial-message');
+            suggestionsDiv.innerHTML = ''; // Clear previous suggestions
+
+            if (initialMessage) {
+                initialMessage.style.display = 'none'; // Hide initial message
+            }
+
+            const keywords = interestsInput.split(',').map(keyword => keyword.trim()).filter(keyword => keyword.length > 0);
+            let generatedGifts = [];
+            const addedGiftNames = new Set(); // To prevent duplicate gift suggestions
+
+            // Function to add gifts, avoiding duplicates
+            const addGifts = (gifts) => {
+                gifts.forEach(gift => {
+                    if (!addedGiftNames.has(gift.name)) {
+                        generatedGifts.push(gift);
+                        addedGiftNames.add(gift.name);
+                    }
+                });
+            };
+
+            if (keywords.length === 0) {
+                addGifts(generalGiftIdeas); // If no interests provided, show general gifts
+            } else {
+                // Prioritize specific interests
+                keywords.forEach(keyword => {
+                    for (const category in giftIdeasCatalog) {
+                        if (keyword.includes(category) || category.includes(keyword)) {
+                            addGifts(giftIdeasCatalog[category]);
+                        }
+                    }
+                });
+
+                // If specific interests didn't yield enough, add some general ones
+                if (generatedGifts.length < 3) {
+                    addGifts(generalGiftIdeas);
+                }
+            }
+            
+            // Limit to a reasonable number of suggestions, e.g., 6-9
+            generatedGifts = generatedGifts.slice(0, 9);
+
+            if (generatedGifts.length === 0) {
+                suggestionsDiv.innerHTML = '<div class="no-results">Sorry, we couldn\'t find specific suggestions for those interests. Try different keywords or check out some general ideas below!</div>';
+                addGifts(generalGiftIdeas); // Always provide some fallback if search fails
+                generatedGifts.forEach(gift => {
+                    suggestionsDiv.innerHTML += createGiftCardHtml(gift);
+                });
+            } else {
+                generatedGifts.forEach(gift => {
+                    suggestionsDiv.innerHTML += createGiftCardHtml(gift);
+                });
+            }
+        }
+
+        function createGiftCardHtml(gift) {
+            return `
+                <div class="gift-card">
+                    <h3>${gift.name}</h3>
+                    <p>${gift.desc}</p>
+                    <a href="${gift.link}" target="_blank" rel="noopener noreferrer" class="buy-link">View Product</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
